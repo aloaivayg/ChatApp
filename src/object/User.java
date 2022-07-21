@@ -3,6 +3,7 @@ package object;
 import java.util.Date;
 
 public class User {
+    private String id;
     private String firstName;
     private String lastName;
     private String fullName;
@@ -57,5 +58,17 @@ public class User {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", hashPassword='" + hashPassword + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dob=" + dob +
+                '}';
     }
 }
