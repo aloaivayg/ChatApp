@@ -4,9 +4,13 @@ import java.util.Scanner;
 
 import object.IRepository;
 
-class MainTest {
+class Menu {
     private IRepository iRepository;
     private Scanner sc = null;
+
+    public Menu() {
+        sc = new Scanner(System.in);
+    }
 
     public void DisplayMenu() {
         int job = 0;
