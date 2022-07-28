@@ -1,6 +1,7 @@
-package object;
+package object.repository;
 
 import dao.UserDaoImpl;
+import object.User;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,19 +11,29 @@ public class UserRepository implements IRepository {
     UserDaoImpl userDao;
     List<User> userList = new ArrayList<>();
 
-    StringBuilder sb = new StringBuilder();
+
     public UserRepository() {
-        userDao = new UserDaoImpl();
+
     }
 
     @Override
-    public User get(String firstName) {
+    public User get(String username) {
         for (User user: userList) {
-            if (firstName.equals(user.getFirstName())) {
+            if (username.equals(user.getFirstName())) {
                 return user;
             }
         }
         return null;
+    }
+
+    @Override
+    public int getId(String username) {
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getUsername().equals(username)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -41,8 +52,8 @@ public class UserRepository implements IRepository {
     }
 
     @Override
-    public void remove(Object obj) {
-
+    public void remove(int index) {
+        userList.remove(index);
     }
 
 
