@@ -1,11 +1,12 @@
 package model.repository;
 
+import model.Group;
 import model.User;
 
 import java.util.List;
 
 public interface IRepository<T> {
-    User get(String id);
+    Object get(String id);
     int getId(String id);
     List<T> getAll();
 
