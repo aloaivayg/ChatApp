@@ -1,3 +1,5 @@
-/controller/
-/object/
 /dao/
+/main/
+/manager/
+/model/
+/service/
