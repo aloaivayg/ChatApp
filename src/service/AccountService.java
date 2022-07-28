@@ -6,10 +6,16 @@ import object.IRepository;
 
 public class AccountService {
 	private IRepository iRepository;
+	private AdminService adminService;
+	private LoginService loginService;
+	private RegisterService registerService;
     private Scanner sc = null;
 
     public AccountService() {
         sc = new Scanner(System.in);
+        adminService = new AdminService();
+        loginService = new LoginService();
+        registerService = new RegisterService();
     }
     
     public void DisplayMenu() {
@@ -34,5 +40,20 @@ public class AccountService {
 
         
     }
+    private void doRegister() {
+		loginService.DisplayLogin();	
+	}
+
+	private void doLogin() {
+		registerService.DisplayRegister();
+	}
+
+	private void printMenu() {
+		System.out.println("");
+		System.out.println("1. Login");
+		System.out.println("2. Register");
+		System.out.println("3. Exit");
+		System.out.print("What do you want? ");
+	}
 
 }
