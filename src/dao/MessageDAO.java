@@ -6,14 +6,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
 
-public class UserDaoImpl implements UserDao{
+public class MessageDAO implements DAO{
 
 
     String filePath = "UserData";
 
     FileInputStream fis;
 
-    public UserDaoImpl() {
+    public MessageDAO() {
         createFolder();
     }
 

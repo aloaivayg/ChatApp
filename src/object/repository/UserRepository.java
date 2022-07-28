@@ -1,6 +1,6 @@
 package object.repository;
 
-import dao.UserDaoImpl;
+import dao.MessageDAO;
 import object.User;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class UserRepository implements IRepository {
-    UserDaoImpl userDao;
+    MessageDAO userDao;
     List<User> userList = new ArrayList<>();
 
 

@@ -1,5 +1,3 @@
-/dao/
-/main/
-/manager/
+/controller/
 /object/
-/service/
+/dao/
