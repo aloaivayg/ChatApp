@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Menu myMenu = new Menu();
-        myMenu.DisplayMenu();
+        LoginInterface loginInterface = new LoginInterface();
+        loginInterface.DisplayLogin();
+        
     }
 }
