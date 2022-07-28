@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class User {
     private String id;
+    private String username;
     private String firstName;
     private String lastName;
     private String fullName;
@@ -11,7 +12,14 @@ public class User {
     private String gender;
     private Date dob;
 
-    public User() {
+    
+    public User(String username, String hashPassword) {
+		super();
+		this.username = username;
+		this.hashPassword = hashPassword;
+	}
+
+	public User() {
 
     }
 

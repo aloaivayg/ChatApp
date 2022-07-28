@@ -1,13 +1,14 @@
 package main;
 
 import object.DataStorage;
+import service.LoginService;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        LoginInterface loginInterface = new LoginInterface();
-        loginInterface.DisplayLogin();
+        LoginService loginService = new LoginService();
+        loginService.DisplayLogin();
         
     }
 }
