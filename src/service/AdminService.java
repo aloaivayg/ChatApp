@@ -50,7 +50,7 @@ class AdminService {
 				System.out.println("Thank you for using our service");
 
 			}
-		} while (job != 8);
+		} while (job <= 8);
 
 	}
 

@@ -33,18 +33,18 @@ public class AccountService {
                         doRegister();
                         break;
                     default:
-                    	System.out.println("Thank you for");
+                    	System.out.println("Thank you for using our service");
                     
                 }
-            } while (job != 2);
+            } while (job <= 2);
 
         
     }
-    private void doRegister() {
+    private void doLogin() {
 		loginService.DisplayLogin();	
 	}
 
-	private void doLogin() {
+	private void doRegister() {
 		registerService.DisplayRegister();
 	}
 
