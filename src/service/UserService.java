@@ -1,12 +1,12 @@
-package controller;
+package service;
 
-import object.DataStorage;
-import object.User;
+import model.DataStorage;
+import model.User;
 
-public class UserController {
+public class UserService {
     private final DataStorage dataStorage;
 
-    public UserController() {
+    public UserService() {
         dataStorage = DataStorage.createStorage();
     }
 

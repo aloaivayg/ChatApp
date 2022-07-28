@@ -1,7 +1,7 @@
-package object.repository;
+package model.repository;
 
 import dao.MessageDAO;
-import object.User;
+import model.User;
 
 import java.util.ArrayList;
 import java.util.Collections;

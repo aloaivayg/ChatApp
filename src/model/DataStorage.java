@@ -1,10 +1,12 @@
-package object;
+package model;
 
-import object.repository.UserRepository;
+import model.repository.MessageRepository;
+import model.repository.UserRepository;
 
 public class DataStorage {
     private static DataStorage storage = null;
     UserRepository userRepository;
+    MessageRepository messageRepository;
 
     private DataStorage() {
         userRepository = new UserRepository();

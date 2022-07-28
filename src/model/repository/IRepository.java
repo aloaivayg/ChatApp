@@ -1,8 +1,7 @@
-package object.repository;
+package model.repository;
 
-import object.User;
+import model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface IRepository<T> {
