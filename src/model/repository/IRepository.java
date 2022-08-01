@@ -12,6 +12,6 @@ public interface IRepository<T> {
 
     void add(T obj);
     void update(T obj);
-    void remove(int id);
+    void remove(String id);
 
 }

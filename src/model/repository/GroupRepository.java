@@ -3,65 +3,76 @@ package model.repository;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import model.Group;
+import model.User;
 
 
 public class GroupRepository implements IRepository<Group>{
+	List<Group> listGroup;
 	
-	List<Group> listGroups;
-	String groupID;
-
-	public GroupRepository( String groupID) {
-		super();
-		this.groupID = groupID;
-		this.listGroups = new ArrayList<>();
-	}
-
 	@Override
-	public Group get(String id) {
-		for (int i = 0; i < listGroups.size(); i++) {
-            if (listGroups.get(i).getId().equalsIgnoreCase(id)) {
-				return listGroups.get(i);
+	public Object get(String id) {
+		for (int i = 0; i < listGroup.size(); i++) {
+			if (listGroup.get(i).getId().equalsIgnoreCase(id)) {
+				return listGroup.get(i);
 			}
-        }
-        return null;
+		}
+		return null;
 	}
 
 	@Override
 	public int getId(String id) {
-		for (int i = 0; i < listGroups.size(); i++) {
-            if (listGroups.get(i).getId().equalsIgnoreCase(id)) {
+		for (int i = 0; i < listGroup.size(); i++) {
+			if (listGroup.get(i).getId().equalsIgnoreCase(id)) {
 				return i;
 			}
-        }
+		}
 		return -1;
 	}
 
 	@Override
 	public List<Group> getAll() {
 		// TODO Auto-generated method stub
-		return listGroups;
-	}
-
-
-	@Override
-	public void remove(int id) {
-		// TODO Auto-generated method stub
-		
+		return listGroup;
 	}
 
 	@Override
 	public void add(Group obj) {
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < listGroup.size(); i++) {
+			if (!listGroup.contains(obj)) {
+				listGroup.add((Group) obj);
+				break;
+			}
+		}
 	}
 
 	@Override
 	public void update(Group obj) {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < listGroup.size(); i++) {
+			if (listGroup.get(i).getId().equals(obj)) {
+				listGroup.remove(i);
+				listGroup.add(i, obj);
+				break;
+			}
+		}
 		
 	}
+
+	@Override
+	public void remove(String id) {
+		Object tempGroup = get(id);
+		for (int i = 0; i < listGroup.size(); i++) {
+			if (listGroup.contains(tempGroup)) {
+				listGroup.remove(i);
+				break;
+			}
+		}
+		
+	}
+	
+	
 
 }

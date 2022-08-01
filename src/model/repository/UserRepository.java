@@ -43,11 +43,21 @@ public class UserRepository implements IRepository {
 
     @Override
     public void add(Object obj) {
-        userList.add((User) obj);
+    	if (!userList.contains(obj)) {
+    		userList.add((User) obj);
+		}
     }
 
     @Override
     public void update(Object obj) {
+    	for (int i = 0; i < li.size(); i++) {
+			if(this.list.get(i).getUserName().equalsIgnoreCase(user.getUserName())) {
+				this.list.remove(i);
+				this.list.add(i, user);
+				res = true;
+				break;
+			}
+		}
 
     }
 
