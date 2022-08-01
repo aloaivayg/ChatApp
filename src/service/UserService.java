@@ -32,4 +32,13 @@ public class UserService {
     private void update(String pwd) {
 
     }
+
+    public User findUser(String username) {
+        User user = dataStorage.getUser(username);
+        return user;
+    }
+    private void sendMessage() {
+
+    }
+
 }

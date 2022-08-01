@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class UserRepository implements IRepository {
-    MessageDAO userDao;
+
     List<User> userList = new ArrayList<>();
 
 
@@ -37,8 +37,8 @@ public class UserRepository implements IRepository {
     }
 
     @Override
-    public List<Object> getAll() {
-        return Collections.singletonList(userList);
+    public List<User> getAll() {
+        return userList;
     }
 
     @Override
@@ -50,21 +50,19 @@ public class UserRepository implements IRepository {
 
     @Override
     public void update(Object obj) {
-    	for (int i = 0; i < li.size(); i++) {
-			if(this.list.get(i).getUserName().equalsIgnoreCase(user.getUserName())) {
-				this.list.remove(i);
-				this.list.add(i, user);
-				res = true;
-				break;
-			}
-		}
 
     }
 
     @Override
-    public void remove(int index) {
-        userList.remove(index);
+    public void remove(String id) {
+
     }
+
+    public void removeById(int id) {
+
+    }
+
+
 
 
 }

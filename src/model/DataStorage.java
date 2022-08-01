@@ -36,7 +36,7 @@ public class DataStorage {
     public boolean removeUser(String un) {
         int res = userRepository.getId(un);
         if (res!=-1) {
-            userRepository.remove(res);
+            userRepository.removeById(res);
             return true;
         }
         return false;
