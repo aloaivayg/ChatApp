@@ -1,10 +1,8 @@
 package model.repository;
 
-import dao.MessageDAO;
 import model.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class UserRepository implements IRepository {
@@ -19,7 +17,7 @@ public class UserRepository implements IRepository {
     @Override
     public User get(String username) {
         for (User user: userList) {
-            if (username.equals(user.getFirstName())) {
+            if (username.equals(user.getUsername())) {
                 return user;
             }
         }
@@ -43,9 +41,18 @@ public class UserRepository implements IRepository {
 
     @Override
     public void add(Object obj) {
-    	if (!userList.contains(obj)) {
+    	if (!userList.contains((User) obj)) {
     		userList.add((User) obj);
 		}
+    }
+    public void saveFriend(int senderIndex, User receiver) {
+        userList.get(senderIndex).getFriendList().add(receiver);
+    }
+
+    public void removeFriend(User user, User target) {
+        if (!user.getFriendList().contains(target)) {
+            user.getFriendList().remove(target);
+        }
     }
 
     @Override

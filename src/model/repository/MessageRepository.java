@@ -1,7 +1,7 @@
 package model.repository;
 
 import model.Message;
-import model.User;
+
 
 import java.io.*;
 import java.util.ArrayList;
@@ -104,7 +104,7 @@ public class MessageRepository implements IRepository{
     }
 
     @Override
-    public User get(String keyword) {
+    public Message get(String keyword) {
         return null;
     }
 
@@ -114,7 +114,7 @@ public class MessageRepository implements IRepository{
     }
 
     @Override
-    public List getAll() {
+    public List<Message> getAll() {
         return null;
     }
 

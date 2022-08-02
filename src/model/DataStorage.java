@@ -25,12 +25,18 @@ public class DataStorage {
 
     public boolean addUser(String un, String pwd) {
        User res = userRepository.get(un);
-       if (res!=null) {
+       if (res==null) {
            User user = new User(un, pwd);
            userRepository.add(user);
            return true;
        }
        return false;
+    }
+
+    public void addFriendRequest(User sender, User receiver) {
+        int senderIndex = userRepository.getId(sender.getUsername());
+        User temp = receiver;
+        userRepository.saveFriend(senderIndex, temp);
     }
 
     public boolean removeUser(String un) {
