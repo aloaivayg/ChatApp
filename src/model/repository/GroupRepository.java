@@ -24,7 +24,7 @@ public class GroupRepository implements IRepository<Group>{
 	}
 
 	@Override
-	public int getId(String id) {
+	public int getIndex(String id) {
 		for (int i = 0; i < listGroup.size(); i++) {
 			if (listGroup.get(i).getId().equalsIgnoreCase(id)) {
 				return i;
@@ -70,9 +70,7 @@ public class GroupRepository implements IRepository<Group>{
 				break;
 			}
 		}
-		
 	}
-	
 	
 
 }

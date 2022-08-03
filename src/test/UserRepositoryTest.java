@@ -1,13 +1,14 @@
-package model.repository;
+package test;
 
 import model.User;
+import model.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserRepositoryTest {
-    private UserRepository userRepository;
+    public UserRepository userRepository;
     @BeforeEach
     void setUp() {
         userRepository = new UserRepository();
@@ -16,7 +17,7 @@ class UserRepositoryTest {
     @Test
     void get() {
         User user1 = new User("bao","1");
-        userRepository.userList.add(user1);
+        userRepository.add(user1);
         String expected = "bao";
         String actual = userRepository.get("bao").getUsername();
 
@@ -28,9 +29,9 @@ class UserRepositoryTest {
     @Test
     void getId() {
         User user1 = new User("bao","1");
-        userRepository.userList.add(user1);
+        userRepository.add(user1);
         int expected = 0;
-        int actual = userRepository.getId("bao");
+        int actual = userRepository.getIndex("bao");
 
         assertEquals(expected, actual);
     }
@@ -45,7 +46,7 @@ class UserRepositoryTest {
         userRepository.add(user1);
 
         String expected = "bao";
-        String actual = userRepository.userList.get(0).getUsername();
+        String actual = userRepository.get("bao").getUsername();
 
         assertEquals(expected, actual);
     }

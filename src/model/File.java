@@ -4,14 +4,14 @@ import java.io.FileOutputStream;
 
 public class File {
     private String filename;
-    private String fileType;
+    private Enum fileType;
     private FileOutputStream fileOutputStream;
     private String sender;
     private String receiver;
     private Long groupId;
     private String url;
 
-    public File(String filename, String fileType, FileOutputStream fileOutputStream, String sender, String receiver,
+    public File(String filename, Enum fileType, FileOutputStream fileOutputStream, String sender, String receiver,
                 Long groupId, String url) {
         this.filename = filename;
         this.fileType = fileType;
@@ -46,11 +46,11 @@ public class File {
         this.filename = filename;
     }
 
-    public String getFileType() {
+    public Enum getFileType() {
         return fileType;
     }
 
-    public void setFileType(String fileType) {
+    public void setFileType(Enum fileType) {
         this.fileType = fileType;
     }
 

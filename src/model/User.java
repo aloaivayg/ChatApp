@@ -15,12 +15,13 @@ public class User {
     private Date dob;
 
     private List<User> friendList;
-
+    private List<Message> messageList;
     
     public User(String username, String hashPassword) {
 		this.username = username;
 		this.hashPassword = hashPassword;
         friendList = new ArrayList<>();
+        messageList = new ArrayList<>();
 	}
 
     public String getId() {
@@ -37,6 +38,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    public void setMessageList(List<Message> messageList) {
+        this.messageList = messageList;
     }
 
     public String getFirstName() {

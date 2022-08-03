@@ -19,7 +19,7 @@ public class UserService {
         }
     }
 
-    private User signIn(String username, String pwd) {
+    private void signIn(String username, String pwd) {
         currentUser = dataStorage.getUser(username);
         if (currentUser!= null) {
             if (currentUser.getHashPassword().equals(pwd)){
@@ -28,7 +28,6 @@ public class UserService {
         } else {
             System.out.println("Failed");
         }
-        return currentUser;
     }
 
     private void update(String pwd) {
@@ -45,6 +44,15 @@ public class UserService {
         if (currentUser!=null) {
             if (targetUser!=null)
             dataStorage.addFriendRequest(currentUser, targetUser);
+        }
+    }
+
+    public void removeFriend(String username) {
+        int targetIndex = dataStorage.getUserIndex(username);
+        if (currentUser!=null) {
+            if (targetIndex != -1) {
+                dataStorage.removeFriendRequest(currentUser, targetIndex);
+            }
         }
     }
 

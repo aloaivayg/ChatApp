@@ -108,8 +108,29 @@ public class MessageRepository implements IRepository{
         return null;
     }
 
+    public List<Message> getSearchResult(List<Message> userMessages, String keyword) {
+        List<Message> searchResult = new ArrayList<>();
+        for (Message msg: userMessages) {
+            if (msg.getContent().contains(keyword)) {
+                searchResult.add(msg);
+            }
+        }
+        return searchResult;
+    }
+
+    public List<Message> getLatestMessage(List<Message> userMessages, String keyword) {
+        List<Message> searchResult = new ArrayList<>();
+        for (Message msg: userMessages) {
+            if (msg.getContent().contains(keyword)) {
+                searchResult.add(msg);
+            }
+        }
+        return searchResult;
+    }
+
+
     @Override
-    public int getId(String id) {
+    public int getIndex(String id) {
         return 0;
     }
 

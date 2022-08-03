@@ -10,6 +10,7 @@ public class DataStorage {
 
     private DataStorage() {
         userRepository = new UserRepository();
+        messageRepository = new MessageRepository();
     }
 
     public static DataStorage createStorage() {
@@ -19,8 +20,13 @@ public class DataStorage {
         return storage;
     }
 
+    //User
     public User getUser(String username) {
         return userRepository.get(username);
+    }
+
+    public int getUserIndex(String username) {
+        return userRepository.getIndex(username);
     }
 
     public boolean addUser(String un, String pwd) {
@@ -34,18 +40,21 @@ public class DataStorage {
     }
 
     public void addFriendRequest(User sender, User receiver) {
-        int senderIndex = userRepository.getId(sender.getUsername());
+        int senderIndex = userRepository.getIndex(sender.getUsername());
         User temp = receiver;
         userRepository.saveFriend(senderIndex, temp);
     }
 
-    public boolean removeUser(String un) {
-        int res = userRepository.getId(un);
-        if (res!=-1) {
-            userRepository.removeById(res);
-            return true;
-        }
-        return false;
+    public void removeFriendRequest(User user, int id) {
+        int userIndex = userRepository.getIndex(user.getUsername());
+        userRepository.removeFriend(userIndex, id);
     }
+
+    //Message Repo
+    public User getMessage(String keyword) {
+        return userRepository.get(keyword);
+    }
+
+
 
 }

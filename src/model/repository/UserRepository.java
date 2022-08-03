@@ -25,7 +25,7 @@ public class UserRepository implements IRepository {
     }
 
     @Override
-    public int getId(String username) {
+    public int getIndex(String username) {
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i).getUsername().equals(username)) {
                 return i;
@@ -49,10 +49,8 @@ public class UserRepository implements IRepository {
         userList.get(senderIndex).getFriendList().add(receiver);
     }
 
-    public void removeFriend(User user, User target) {
-        if (!user.getFriendList().contains(target)) {
-            user.getFriendList().remove(target);
-        }
+    public void removeFriend(int userIndex, int targetId) {
+        userList.get(userIndex).getFriendList().remove(targetId);
     }
 
     @Override

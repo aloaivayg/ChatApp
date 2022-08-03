@@ -4,7 +4,6 @@ public class Message {
 
     private String username;
     private String content;
-    private String avatar;
     private String type;
     private String receiver;
     private String groupId;
@@ -43,14 +42,6 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
     }
 
     public String getType() {
