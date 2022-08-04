@@ -3,6 +3,7 @@ package model;
 import java.io.FileOutputStream;
 
 public class File {
+    private String id;
     private String filename;
     private Enum fileType;
     private FileOutputStream fileOutputStream;

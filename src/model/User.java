@@ -3,6 +3,7 @@ package model;
 import java.util.*;
 
 public class User {
+    //properties
     private String id;
     private String username;
     private String firstName;
@@ -94,7 +95,7 @@ public class User {
         return hashPassword;
     }
 
-    public void setHashPassword(String hashPassword) {
+    void setHashPassword(String hashPassword) {
         this.hashPassword = hashPassword;
     }
 

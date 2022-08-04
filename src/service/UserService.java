@@ -1,9 +1,7 @@
 package service;
 
-import model.DataStorage;
+import model.datastorage.DataStorage;
 import model.User;
-
-import java.util.function.Predicate;
 
 public class UserService {
     private final DataStorage dataStorage;
