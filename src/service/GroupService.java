@@ -9,7 +9,7 @@ import model.User;
 import model.repository.GroupRepository;
 
 public class GroupService {
-	GroupRepository groupRepository;
+
 	PublicGroup publicGroup;
 	PrivateGroup privateGroup;
 	List<Group> listGroup;
@@ -18,7 +18,7 @@ public class GroupService {
 		this.publicGroup = publicGroup;
 		this.privateGroup = privateGroup;
 	}
-	void JoinGroupByInvite(String id, User user) {
+	void CreateGroupByInvite(String id, User user) {
 		for (int i = 0; i < listGroup.size(); i++) {
 			
 		}

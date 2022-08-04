@@ -6,7 +6,7 @@ public class PublicGroup extends Group{
 	
 	public String inviteCode;
 	public PublicGroup(String id, String name, User admin, List<User> userList) {
-		super(id, name, userList);
+		
 	}
 	public String getInviteCode() {
 		return inviteCode;
