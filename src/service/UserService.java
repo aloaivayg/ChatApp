@@ -13,12 +13,13 @@ public class UserService {
         dataStorage = DataStorage.createStorage();
     }
 
-    public User getUser(User user){
-        return (User) dataStorage.userRepository.find(u -> u.getUsername().equals(user.getUsername()));
+
+    public User getUser(String username){
+        return (User) dataStorage.userRepository.find(u -> u.getUsername().equals(username));
     }
 
     public boolean signUp(String username, String pwd){
-        User resUser = dataStorage.userRepository.find(u -> u.getUsername().equals(username));
+        User resUser = getUser(username);
         if (resUser == null) {
             User newUser = new User(username, pwd);
             dataStorage.userRepository.insert(newUser);
@@ -30,7 +31,7 @@ public class UserService {
     }
 
     private boolean signIn(String username, String pwd) {
-        currentUser = dataStorage.userRepository.find(u -> u.getUsername().equals(username));
+        currentUser = getUser(username);
 
         if (currentUser!= null) {
             if (currentUser.getHashPassword().equals(pwd)){
@@ -43,9 +44,28 @@ public class UserService {
         }
     }
 
-    public User findUser(String username) {
-        User user = dataStorage.userRepository.find(u -> u.getUsername().equals(username));
-        return user;
+
+    //need to handle duplicate request
+    public void sendFriendRequest(String username) {
+        User targetUser = getUser(username);
+        if (currentUser!=null) {
+            if (targetUser!=null) {
+                targetUser.setFriendRequest(currentUser, false);
+            }
+        }
+    }
+
+    public void acceptFriendRequest(String username) {
+        User targetUser = dataStorage.userRepository.find(u -> u.getUsername().equals(username));
+
+    }
+
+    public void removeUser(String username) {
+        if (currentUser!=null) {
+            dataStorage.userRepository.delete(currentUser);
+        } else {
+            System.out.println("User not existed");
+        }
     }
 
 

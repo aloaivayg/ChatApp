@@ -6,7 +6,9 @@
 //
 //import java.io.*;
 //import java.util.ArrayList;
+//import java.util.Comparator;
 //import java.util.List;
+//import java.util.function.Predicate;
 //
 //public class MessageRepository implements IRepository{
 //    String filePath = "UserData";
@@ -104,62 +106,64 @@
 //        }
 //    }
 //
-//    @Override
-//    public Message get(String keyword) {
-//        for (Message msg: messageList) {
-//            if (msg.getContent().contains(keyword)) {
-//                return msg;
-//            }
-//        }
-//        return null;
-//    }
 //
-//    public List<Message> getSearchResult(List<Message> userMessages, String keyword) {
-//        List<Message> searchResult = new ArrayList<>();
-//        for (Message msg: userMessages) {
-//            if (msg.getContent().contains(keyword)) {
-//                searchResult.add(msg);
-//            }
-//        }
-//        return searchResult;
-//    }
-//
-//    public List<Message> getLatestMessage(List<Message> userMessages, String keyword) {
-//        List<Message> searchResult = new ArrayList<>();
-//        for (Message msg: userMessages) {
-//            if (msg.getContent().contains(keyword)) {
-//                searchResult.add(msg);
-//            }
-//        }
-//        return searchResult;
-//    }
-//
-//
-//    @Override
-//    public int getIndex(String id) {
-//        return 0;
-//    }
-//
-//    @Override
-//    public List<Message> getAll() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void add(Object obj) {
-//        if (!messageList.contains((Message) obj)) {
-//            messageList.add((Message) obj);
-//        }
-//    }
-//
-//    @Override
-//    public void update(Object obj) {
-//
-//    }
-//
-//    @Override
-//    public void remove(String id) {
-//
-//    }
+////
+////    @Override
+////    public Message get(String keyword) {
+////        for (Message msg: messageList) {
+////            if (msg.getContent().contains(keyword)) {
+////                return msg;
+////            }
+////        }
+////        return null;
+////    }
+////
+////    public List<Message> getSearchResult(List<Message> userMessages, String keyword) {
+////        List<Message> searchResult = new ArrayList<>();
+////        for (Message msg: userMessages) {
+////            if (msg.getContent().contains(keyword)) {
+////                searchResult.add(msg);
+////            }
+////        }
+////        return searchResult;
+////    }
+////
+////    public List<Message> getLatestMessage(List<Message> userMessages, String keyword) {
+////        List<Message> searchResult = new ArrayList<>();
+////        for (Message msg: userMessages) {
+////            if (msg.getContent().contains(keyword)) {
+////                searchResult.add(msg);
+////            }
+////        }
+////        return searchResult;
+////    }
+////
+////
+////    @Override
+////    public int getIndex(String id) {
+////        return 0;
+////    }
+////
+////    @Override
+////    public List<Message> getAll() {
+////        return null;
+////    }
+////
+////    @Override
+////    public void add(Object obj) {
+////        if (!messageList.contains((Message) obj)) {
+////            messageList.add((Message) obj);
+////        }
+////    }
+////
+////    @Override
+////    public void update(Object obj) {
+////
+////    }
+////
+////    @Override
+////    public void remove(String id) {
+////
+////    }
 //
 //}

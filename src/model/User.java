@@ -1,8 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class User {
     private String id;
@@ -14,7 +12,13 @@ public class User {
     private String gender;
     private Date dob;
 
+    //status
+    private boolean isActive;
+    private boolean isAdmin;
+
+    //lists
     private List<User> friendList;
+    private Map<User, Boolean> friendRequest;
     private List<Message> messageList;
     
     public User(String username, String hashPassword) {
@@ -22,6 +26,7 @@ public class User {
 		this.hashPassword = hashPassword;
         friendList = new ArrayList<>();
         messageList = new ArrayList<>();
+        friendRequest = new HashMap<>();
 	}
 
     public String getId() {
@@ -46,6 +51,14 @@ public class User {
 
     public void setMessageList(List<Message> messageList) {
         this.messageList = messageList;
+    }
+
+    public Map<User, Boolean> getFriendRequest() {
+        return friendRequest;
+    }
+
+    public void setFriendRequest(User user,  boolean isAccetped) {
+        this.friendRequest.put(user, isAccetped);
     }
 
     public String getFirstName() {
@@ -99,6 +112,22 @@ public class User {
 
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 
     @Override
