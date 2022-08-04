@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class UserService {
     private final DataStorage dataStorage;
-    private User currentUser;
+    public User currentUser;
 
     public UserService() {
         dataStorage = DataStorage.createStorage();
