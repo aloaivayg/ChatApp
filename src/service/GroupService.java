@@ -2,26 +2,36 @@ package service;
 
 import java.util.List;
 
+import model.DataStorage;
 import model.Group;
 import model.PrivateGroup;
 import model.PublicGroup;
 import model.User;
-import model.repository.GroupRepository;
 
 public class GroupService {
+	DataStorage dataStorage;
 
-	PublicGroup publicGroup;
-	PrivateGroup privateGroup;
-	List<Group> listGroup;
-	public GroupService(PublicGroup publicGroup, PrivateGroup privateGroup) {
+	public GroupService() {
 		super();
-		this.publicGroup = publicGroup;
-		this.privateGroup = privateGroup;
+		dataStorage = DataStorage.createStorage();
 	}
-	void CreateGroupByInvite(String id, User user) {
-		for (int i = 0; i < listGroup.size(); i++) {
+
+	void createGroup(String groupName, boolean isPrivate) {
+		if (isPrivate == true) {
+			PrivateGroup privateGroup = new PrivateGroup(groupName, isPrivate);
+			dataStorage.groupRepository.insert(privateGroup);	
 			
+		} else {
+			PublicGroup publicGroup = new PublicGroup(groupName, isPrivate);
+			dataStorage.groupRepository.insert(publicGroup);	
 		}
+	}
+
+	boolean findPrivateGroupAdmin(List<User> users, User admin) {
+		if (users.contains(admin)) {
+			return true;
+		}
+		return false;
 	}
 
 }
