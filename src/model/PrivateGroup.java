@@ -8,7 +8,6 @@ public class PrivateGroup extends Group {
 		super(name, isPrivate);
 		// TODO Auto-generated constructor stub
 	}
-
 	public User admin;
 
 }
