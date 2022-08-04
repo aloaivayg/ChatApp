@@ -2,9 +2,10 @@ package model;
 
 public class Message {
 
+    private String id;
     private String username;
     private String content;
-    private String type;
+
     private String receiver;
     private String groupId;
 
@@ -12,10 +13,10 @@ public class Message {
 
     }
 
-    public Message(String username, String content, String type, String receiver, String groupId) {
+    public Message(String username, String content, String receiver, String groupId) {
         this.username = username;
         this.content = content;
-        this.type = type;
+
         this.receiver = receiver;
         this.groupId = groupId;
     }
@@ -44,13 +45,7 @@ public class Message {
         this.content = content;
     }
 
-    public String getType() {
-        return type;
-    }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getReceiver() {
         return receiver;
@@ -65,7 +60,6 @@ public class Message {
         return "Message{" +
                 "username='" + username + '\'' +
                 ", content='" + content + '\'' +
-                ", type='" + type + '\'' +
                 ", receiver='" + receiver + '\'' +
                 ", groupId='" + groupId + '\'' +
                 '}';

@@ -1,6 +1,7 @@
 package service;
 
 import model.DataStorage;
+import model.User;
 
 public class MessageService {
     private final DataStorage dataStorage;
@@ -8,6 +9,8 @@ public class MessageService {
     public MessageService() {
         dataStorage = DataStorage.createStorage();
     }
+
+
 
 
 }

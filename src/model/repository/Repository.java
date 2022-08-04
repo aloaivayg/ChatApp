@@ -1,0 +1,42 @@
+package model.repository;
+
+import javax.swing.text.html.parser.Entity;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class Repository<Entity> implements IRepository<Entity>{
+
+    List<Entity> list = new ArrayList<>();
+
+    @Override
+    public List<Entity> get(Predicate<Entity> predicate, Comparator<Entity> filter) {
+        List<Entity> result;
+
+        result = list.stream().filter(predicate).sorted(filter).collect(Collectors.toList());
+        return result;
+    }
+
+    @Override
+    public Entity find(Predicate<Entity> predicate) {
+        return list.stream().filter(predicate).findFirst().orElse(null);
+    }
+
+    @Override
+    public void insert(Entity entity) {
+        list.add(entity);
+    }
+
+    @Override
+    public void update(Entity oldE, Entity newE) {
+
+    }
+
+    @Override
+    public void delete(Entity entity) {
+        list.remove(entity);
+    }
+}

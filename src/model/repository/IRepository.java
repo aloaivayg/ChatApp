@@ -1,14 +1,20 @@
 package model.repository;
 
+import javax.swing.text.html.parser.Entity;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
-public interface IRepository<T> {
-    Object get(String id);
-    int getIndex(String id);
-    List<T> getAll();
+public interface IRepository<Entity> {
+    List<Entity> get(Predicate<Entity> predicate, Comparator<Entity> filter);
 
-    void add(T obj);
-    void update(T obj);
-    void remove(String id);
+    Entity find(Predicate<Entity> predicate);
+
+    void insert(Entity entity);
+
+    void update(Entity entity, Entity entity1);
+
+    void delete(Entity entity);
 
 }
