@@ -13,7 +13,7 @@ public class UserService {
 
 
     public User getUser(String username){
-        return (User) dataStorage.userRepository.find(u -> u.getUsername().equals(username));
+        return dataStorage.userRepository.find(u -> u.getUsername().equals(username));
     }
 
     public boolean signUp(String username, String pwd){
@@ -54,66 +54,24 @@ public class UserService {
     }
 
     public void acceptFriendRequest(String username) {
-        User targetUser = dataStorage.userRepository.find(u -> u.getUsername().equals(username));
-
+        User targetUser = getUser(username);
+        targetUser.setFriendRequest(targetUser, true);
+        currentUser.getFriendList().add(targetUser);
     }
 
-    public void removeUser(String username) {
+    public boolean removeUser(String username) {
         if (currentUser!=null) {
             dataStorage.userRepository.delete(currentUser);
-        } else {
-            System.out.println("User not existed");
+            return true;
         }
+        return false;
+    }
+
+    public void getGroupOfUsers(User user) {
+
     }
 
 
-//    private void signUp(String username, String pwd) {
-//        if (dataStorage.addUser(username, pwd)) {
-//            System.out.println("Successful");
-//        } else {
-//            System.out.println("User existed");
-//        }
-//    }
-//
-//    private void signIn(String username, String pwd) {
-//        currentUser = dataStorage.getUser(username);
-//        if (currentUser!= null) {
-//            if (currentUser.getHashPassword().equals(pwd)){
-//                System.out.println("Logged in successful");
-//            }
-//        } else {
-//            System.out.println("Failed");
-//        }
-//    }
-//
-//    private void update(String pwd) {
-//
-//    }
-//
-//    public User findUser(String username) {
-//        User user = dataStorage.getUser(username);
-//        return user;
-//    }
-//
-//    public void addFriend(String username) {
-//        User targetUser = dataStorage.getUser(username);
-//        if (currentUser!=null) {
-//            if (targetUser!=null)
-//            dataStorage.addFriendRequest(currentUser, targetUser);
-//        }
-//    }
-//
-//    public void removeFriend(String username) {
-//        int targetIndex = dataStorage.getUserIndex(username);
-//        if (currentUser!=null) {
-//            if (targetIndex != -1) {
-//                dataStorage.removeFriendRequest(currentUser, targetIndex);
-//            }
-//        }
-//    }
 
-    private void sendMessage() {
-
-    }
 
 }
