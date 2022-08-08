@@ -43,7 +43,7 @@ public class MessageService {
         //If receiver is a group
         else if (receiver instanceof Group){
             receiverName = ((Group) receiver).getId();
-            Group tempGroup = groupService.getGroup(receiverName);
+            Group tempGroup = groupService.getGroupById(receiverName);
             message = new Message(sender.getUsername(), text,receiverName);
             tempGroup.getMessageList().add(message);
         } else {
@@ -66,7 +66,7 @@ public class MessageService {
                 User user = userService.getUser(destination);
                 user.getMessageList().remove(messageToDelete);
             } else {
-                Group group = groupService.getGroup(destination);
+                Group group = groupService.getGroupById(destination);
                 group.getMessageList().remove(messageToDelete);
             }
             return true;
