@@ -1,9 +1,7 @@
-package model.repository;
+package repository;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface IRepository<Entity> {

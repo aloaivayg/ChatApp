@@ -68,7 +68,6 @@ public class UserService {
     }
 
     public void getGroupOfUsers(User user) {
-
     }
 
 
