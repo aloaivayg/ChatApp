@@ -30,11 +30,7 @@ public class GroupService {
 	public boolean joinPublicGroup(String groupId, String userName) {
 		var group = getGroupById(groupId);
 		if (group == null) {
-			return false;
-		}
-		var user = userService.getUser(userName);
-		if (user == null) {
-			return false;
+			
 		}
 		return true;
 	}

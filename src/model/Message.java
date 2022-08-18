@@ -13,12 +13,12 @@ public class Message {
 
     }
 
-    public Message(String username, String content, String receiver, String groupId) {
+    public Message(String username, String content, String receiver) {
         this.username = username;
         this.content = content;
 
         this.receiver = receiver;
-        this.groupId = groupId;
+
     }
 
     public String getGroupId() {
@@ -44,7 +44,6 @@ public class Message {
     public void setContent(String content) {
         this.content = content;
     }
-
 
 
     public String getReceiver() {

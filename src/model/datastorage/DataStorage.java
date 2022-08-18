@@ -1,5 +1,9 @@
-package model;
+package model.datastorage;
 
+import model.File;
+import model.Group;
+import model.Message;
+import model.User;
 import model.repository.Repository;
 
 public class DataStorage {
