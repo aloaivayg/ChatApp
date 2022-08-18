@@ -1,6 +1,9 @@
 package model;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.Comparator;
 
 public class User {
     //properties
@@ -28,14 +31,15 @@ public class User {
         friendList = new ArrayList<>();
         messageList = new ArrayList<>();
         friendRequest = new HashMap<>();
+        setId();
 	}
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    private void setId() {
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getUsername() {
@@ -58,8 +62,9 @@ public class User {
         return friendRequest;
     }
 
-    public void setFriendRequest(User user,  boolean isAccetped) {
-        this.friendRequest.put(user, isAccetped);
+    public void setFriendRequest(User user,  boolean isAccepted) {
+        if (!friendList.contains(user))
+        this.friendRequest.put(user, isAccepted);
     }
 
     public String getFirstName() {
@@ -129,6 +134,13 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public List<Message> getMessageByKeywords(Predicate<Message> predicate) {
+        List<Message> result;
+
+        result = messageList.stream().filter(predicate).collect(Collectors.toList());
+        return result;
     }
 
     @Override

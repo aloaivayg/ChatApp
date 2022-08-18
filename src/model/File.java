@@ -1,43 +1,35 @@
 package model;
 
+import model.enums.FileType;
+
 import java.io.FileOutputStream;
+import java.util.UUID;
 
 public class File {
     private String id;
     private String filename;
-    private Enum fileType;
-    private FileOutputStream fileOutputStream;
+    private FileType fileType;
     private String sender;
     private String receiver;
-    private Long groupId;
-    private String url;
+    private String extension;
 
-    public File(String filename, Enum fileType, FileOutputStream fileOutputStream, String sender, String receiver,
-                Long groupId, String url) {
+
+    public File(String filename, FileType fileType, String sender, String receiver) {
         this.filename = filename;
         this.fileType = fileType;
-        this.fileOutputStream = fileOutputStream;
         this.sender = sender;
         this.receiver = receiver;
-        this.groupId = groupId;
-        this.url = url;
+        setId();
     }
 
-    public Long getGroupId() {
-        return groupId;
+    public String getId() {
+        return id;
     }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    private void setId() {
+        this.id = UUID.randomUUID().toString();
     }
 
-    public FileOutputStream getFileOutputStream() {
-        return fileOutputStream;
-    }
-
-    public void setFileOutputStream(FileOutputStream fileOutputStream) {
-        this.fileOutputStream = fileOutputStream;
-    }
 
     public String getFilename() {
         return filename;
@@ -47,11 +39,11 @@ public class File {
         this.filename = filename;
     }
 
-    public Enum getFileType() {
+    public FileType getFileType() {
         return fileType;
     }
 
-    public void setFileType(Enum fileType) {
+    public void setFileType(FileType fileType) {
         this.fileType = fileType;
     }
 
@@ -71,11 +63,12 @@ public class File {
         this.receiver = receiver;
     }
 
-    public String getUrl() {
-        return url;
+    public String getExtension() {
+        return extension;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setExtension(String extension) {
+        this.extension = extension;
     }
+
 }

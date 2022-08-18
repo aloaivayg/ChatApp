@@ -1,5 +1,7 @@
 package model;
 
+import java.util.UUID;
+
 public class Message {
 
     private String id;
@@ -18,7 +20,15 @@ public class Message {
         this.content = content;
 
         this.receiver = receiver;
+        setId();
+    }
 
+    public String getId() {
+        return id;
+    }
+
+    private void setId() {
+        this.id = UUID.randomUUID().toString();
     }
 
     public String getGroupId() {

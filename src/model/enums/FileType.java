@@ -1,7 +1,5 @@
 package model.enums;
 
-public class Enum {
-    enum FileType {
+public enum FileType {
         Image, Video , Audio
-    }
 }

@@ -5,19 +5,20 @@ import java.util.List;
 import java.util.UUID;
 
 public abstract class Group {
-    private String id;
-    private String name;
-    private List<User> userList;
-    private List<Message> messageList;
-    private boolean isPrivate;
 
-    public Group(String name, boolean isPrivate) {
-    	this.name = name;
-    	this.userList = new ArrayList<>();
-    	this.messageList = new ArrayList<>();
-    	this.isPrivate = isPrivate;
-    	setId();
-    }
+	private String id;
+	private String name;
+	private List<User> userList;
+	private List<Message> messageList;
+	private boolean isPrivate;
+
+	public Group(String name, boolean isPrivate) {
+		this.name = name;
+		this.userList = new ArrayList<>();
+		this.messageList = new ArrayList<>();
+		this.isPrivate = isPrivate;
+		setId();
+	}
 
 	public List<Message> getMessageList() {
 		return messageList;
@@ -63,6 +64,4 @@ public abstract class Group {
 		this.userList = userList;
 	}
 
-    
-    
 }

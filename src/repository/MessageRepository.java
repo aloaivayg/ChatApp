@@ -1,4 +1,4 @@
-//package model.repository;
+//package repository;
 //
 //import model.Message;
 //import model.User;
